@@ -10,7 +10,22 @@ header nav{
   	width: 100vw;
   	height: 100vh;
 	display: none;
+
+	animation: fade-in .3s;
+
+	/*animation-fill-mode: forwards;*/
 }
+
+@keyframes fade-in{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+
+
 
 header nav a{
 	font-family: "Kaisei Tokumin", serif;
@@ -18,7 +33,7 @@ header nav a{
   	font-size: 22px;
   	color: #ffffff;
   	text-decoration: none;
-  	padding-right: 60px;
+  	padding-right: 45px;
   	line-height: 62px;
   	text-align: right;
   	transition : all 0.2s;
@@ -38,10 +53,12 @@ a:hover{
 	background-image: url('../img/menu.svg');
 	background-repeat: no-repeat;
 	background-position: center;
+	background-size: 100%;
 }
 
 header.open #menu {
 	background-image: url('../img/menuclose.svg');
+	background-size: 60%;
 }
 
 header.open nav{
@@ -80,24 +97,25 @@ main h1{
 	font-weight: 500;
 }
 
-footer nav {
+footer {
   	background-color: #FF94AD;
-  	padding: 10px 5px;
-  	height: 150px;
+  	padding: 10px 15px;
+  	height: 200px;
 }
 
 footer nav a{
 	font-family: "Kaisei Tokumin", serif;
 	font-weight: 400;
   	color: #ffffff;
-  	font-size: 14px;
+  	font-size: 15px;
+  	line-height: 30px;
   	text-decoration: none;
   	transition : all 0.1s;
 }
 
 footer ul{
   	padding-left: 0;
-  	margin-left: 10px;
+  	margin-left: 15px;
 }  			
 
 footer li{
@@ -105,19 +123,53 @@ footer li{
   	padding-left: 0;
 }
 
+footer p{
+	font-size: 10px;
+	margin-top: 40px;
+	color: #fff;
+	text-align: center;
+}
+
+p{
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 250;
+	font-size: 13px;
+	line-height: 21px;
+}
+
 
 
 @media screen and (min-width: 1000px){
 
+	header #menu{
+		width: 90px;
+		height: 90px;
+		top: 30px;
+		right: 40px;
+	}
+
 	header nav{
 		background: linear-gradient(to left, rgba(255, 148, 173, 1), rgba(255, 148, 173, 0));
+		padding-top: 120px;
 
 	}
 
 	header nav a{
-		font-size: 22px;
+		font-size: 30px;
 		line-height: 72px;
+		padding-right: 60px;
 	}
+
+	@keyframes fade-in{
+	from{
+		opacity: 0;
+		transform: translateX(30px);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
 
 
 
@@ -129,10 +181,20 @@ footer li{
 
 	footer nav a{
 		font-size: 16px;
-		margin-left: 20px;
+		margin: 25px;
 	}
 	footer ul{
 		display: flex;
+		justify-content: center;
+	}
+
+	footer p{
+		margin-top: 110px;
+	}
+
+	p{
+		font-size: 16px;
+		line-height: 35px;
 	}
 }
 

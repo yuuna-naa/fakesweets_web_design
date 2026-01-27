@@ -32,6 +32,41 @@
   				margin: 40px;
   			}
 
+  			main #profile{
+  				border-top: 1.5px solid #FF94AD;
+  				border-bottom: 1.5px solid #FF94AD;
+  				margin-bottom: 50px;
+  			}
+
+  			main h2{
+  				margin-top: 100px;
+  				font-size: 18px;
+  				font-weight: 600;
+  				letter-spacing: 5px;
+  				color: #FF295B;
+  				text-align: center;
+  				font-family: "Noto Sans JP", sans-serif;
+  			}
+
+  			main h3{
+  				margin-top: 140px;
+  				font-size: 18px;
+  				font-weight: 600;
+  				letter-spacing: 5px;
+  				color: #FF295B;
+  				text-align: center;
+  				font-family: "Noto Sans JP", sans-serif;
+  				margin-bottom: 20px;
+  			}
+
+  			p{
+  				padding: 5px 30px;
+  			}
+
+  			main section{
+  				margin-bottom: 200px;
+  			}
+
   			main section dl{
   				text-align: center;
   			}
@@ -42,37 +77,159 @@
 
   			main section img{
   				width: 300px;
-  				height: auto;
+  				height: 300px;
+  				object-fit: cover;
+  				margin: 2px;
   			}
+
+  			  				/* overlay全体 */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+   opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+
+/* 拡大画像 */
+#overlay-img {
+  width: 90%;
+  height: auto;
+  
+}
+
+/* 閉じるボタン */
+#overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 矢印 */
+#overlay .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 80px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+#overlay .left {
+  left: 30px;
+}
+
+#overlay .right {
+  right: 30px;
+}
+
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 
   			@media screen and (min-width: 1000px){
   				main {
-  					margin: 80px;
+  					margin: 0 140px;
+  				}
+
+  				main section{
+  					margin-bottom: 300px;
+  				}
+
+  				p{
+  					padding: 10px 200px 10px;
   				}
 
   				main section img{
   					width: 400px;
+  					height: 400px;
+  					object-fit: cover;
   				}
 
-  				main h1{
-  					margin-left: 120px;
-  				}
+  #overlay-img {
+  width: 85%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+  			}
 
-  				#line {
-  					margin-left: 120px;
-  				}
+  			@media screen and (min-width: 1280px){
+  				#overlay-img {
+  				width: auto;
+  				height: 90%;
 
   			}
+
   		</style>
   		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   		<script type="text/javascript" src="../js/header.js"></script>
   	</head>
 
+
+  	<script>
+$(function () {
+  const images = $("section img");
+  let currentIndex = 0;
+
+  images.on("click", function () {
+    currentIndex = images.index(this);
+    showImage();
+    $("#overlay").addClass("active");
+  });
+
+  function showImage() {
+    $("#overlay-img").attr("src", images.eq(currentIndex).attr("src"));
+  }
+
+  $(".right").on("click", function (e) {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage();
+  });
+
+  $(".left").on("click", function (e) {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage();
+  });
+
+  $(".close").on("click", function (e) {
+    e.stopPropagation();
+    $("#overlay").removeClass("active");
+  });
+
+  $("#overlay").on("click", function () {
+    $("#overlay").removeClass("active");
+  });
+});
+
+</script>
+
+
   	<body>
   		<header>
   		 	<nav>
   				<a href="../index.html">トップページ</a>
-  				<a href="../kihon/index.html">基本情報</a>
+  				<a href="../index.html#information"> 基本情報</a>
+  				<a href="../kihon/index.html">チケット</a>
   				<a href="../sakkaichiran/index.html">出展作家一覧</a>
 				<a href="../kaizyou/index.html">アクセスマップ</a>
 		  	</nav>
@@ -87,31 +244,50 @@
   		<main>
   			<h1>中村優那</h1>
   			<div id="line"><img src="../img/line.svg"></div>
+  			<h2>profile</h2>
+  			<div id="profile">
+  			<p>ゲームが好き。高校生の頃にどハマりしていたとあるゲームに影響を受け、自分もこのワクワクする気持ちを届けるようになりたいと思い、美大を目指すようになる。美大入学後は、心を強く動かせる作品を作りたいと、グラフィックやタイポグラフィを中心に、形や色について、プログラミング、ブランディングなど、デザインについてを幅広く学んでいる。</p>
+  			<p>マカロンが大好きで、様々な多くの店を巡るのが趣味。好きな味を聞いて、おすすめのお店を紹介できるくらいには詳しい。ちなみに私はキャラメル味が一番好き、ローズも好き。マカロンの魅力を知ってほしいという思いから、マカロンに関する作品も多く作っている。</p>
+  			</div>
+  			<h3>contents</h3>
   			<section>
   				<dl>
   					<dd>
-  						<img src="../img/m.jpg">
-  						<img src="../img/f.jpg">
-  						<img src="../img/p.jpg">
-  						<img src="../img/c.jpg">
-  						<img src="../img/l.jpg">
-  						<img src="../img/v.jpg">
-  						<img src="../img/mm.jpg">
+  						<img src="../img/IMG_5125 1.jpg">
+  						<img src="../img/IMG_5130 1.jpg">
+  						<img src="../img/IMG_5150 1.jpg">
+  						<img src="../img/IMG_5167 1.jpg">
+  						<img src="../img/IMG_51762 1.jpg">
+  						<img src="../img/IMG_5181 1.jpg">
+  						<img src="../img/IMG_5136_p 1.jpg">
   					</dd>
   				</dl>
   				
 
   			</section>
+
+
   		</main>
+
+  		<!-- overlay -->
+<div id="overlay">
+  <span class="close">×</span>
+  <span class="arrow left">‹</span>
+  <img id="overlay-img">
+  <span class="arrow right">›</span>
+</div>
+
+
   	</body>
   	<footer>
   		<nav>
   			<ul>
   				<li><a href="../index.html">トップページ</a></li>
-  				<li><a href="../kihon/index.html">基本情報</a></li>
-  				<li><a href="../sakkaichiran/index.html">出展作家一覧</a></li>
+  				<li><a href="../index.html#information"> 基本情報</a></li>
+  				<li><a href="../kihon/index.html">チケット</a></li>
 	  			<li><a href="../kaizyou/index.html">アクセスマップ</a></li>
   			</ul> 		
   		</nav>
+  		<p>©︎ 2026 Yuna Nakamura</p>
   	</footer>
 </html>

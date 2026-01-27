@@ -38,13 +38,13 @@
 
   			main{
   				margin: -100px 34px 34px;
-  				color: rgba(255, 41, 91, 0.5);
+  				color: rgba(255, 41, 91, 0.6);
   			}
 
   			main h1{
   				font-size: 38px;
-  				line-height: 66px;
-  				color: rgba(255, 41, 91, 0.5);
+  				line-height: 55px;
+  				color: rgba(255, 0, 80, 0.6);
   				font-family: "Kaisei Tokumin", serif;
   			}
 
@@ -53,6 +53,10 @@
   				font-size: 30px;
   				font-weight: 700;
   				font-family: "Cormorant Garamond", serif;
+  			}
+
+  			main h2 span{
+  				font-size: 38px;
   			}
 
   			section#gaiyou{
@@ -70,10 +74,8 @@
   				color: #FF295B;
   			}
 
-  			section p{  				
-  				font-size: 12px;
-  				font-weight: 250;
-  				line-height: 28px;
+  			section p{  						
+  				text-align: left;
   			}
 
   			section a{
@@ -84,6 +86,36 @@
   				margin-top: 100px;
   				width:75%;
   				max-width: 400px;
+  			}
+
+  			h4{
+				font-family: "Kaisei Tokumin", serif;
+				color: #FF295B;
+				margin: 0;
+				font-size: 22px;
+				font-weight: 500;
+			}
+
+  			section#info{
+  				margin: 70px 40px 300px;
+  				font-size: 13px;
+  				font-family: "Noto Sans JP", sans-serif;
+  				font-weight: 250;
+  			}
+
+  			section#info dl{
+  				margin-top: 50px;
+  				border-bottom: 1.5px solid #FF94AD;
+  			}
+
+  			section#info dt{
+  				float: left;
+  				font-weight: 400;
+  			}
+
+  			section#info dd{
+  				margin-left: 70px;
+  				margin-bottom: 5px;
   			}
 
 
@@ -113,20 +145,51 @@
 			}
 
 
+			section#info a.button {
+  				font-family: "Kaisei Tokumin", serif;
+  				margin: -16px 0 0 85px;
+  				font-size: 9px;
+  				font-weight: 400;
+  				display: block;
+ 				width: 90px;
+ 				height: 11px;
+ 				outline: none;
+  				background-color: #FF94AD;
+ 		 		color: #fff;
+  				text-align: center;
+  				line-height: 12px;
+  				text-decoration: none;
+  				border-radius: 10px;
+  				box-shadow: 0px 2px 0px #FF295B;
+  				transition: all 0.3s;
+			}
+
+			section#info a.button:hover {
+  				background-color: #00A6BA;
+  				color: #FFF;
+  				box-shadow: 0px -2px 0px #008BA2;
+  				transform: translate(0px, 2px);
+			}
+
+
 
 			@media screen and (min-width: 1000px){
 				main{
-					margin: -250px 34px 34px;
+					margin: -40vw 60px;
 				}
 
 				main h1{
-					font-size: 90px;
-					line-height: 108px;
+					font-size: 8vw;
+					line-height: 8vw;
 				}
 
 				main h2{
-					font-size: 48px;
+					font-size: 45px;
 
+				}
+
+				main h2 span{
+					font-size: 120px;
 				}
 
 				#top img{
@@ -134,19 +197,56 @@
 				}
 
 				section#gaiyou{
-					margin-top: 300px;
+					margin-top: 1000px;
 				}
 
 				section h3{
-					font-size: 16px;
+					font-size: 18px;
 				}
 
 				section p{
-					font-size: 15px;
-					line-height: 35px;
 					margin: 80px auto 50px;
-					max-width: 600px;
+					max-width: 500px;
 				}
+
+				h4{
+					font-size: 35px;
+					text-align: center;
+				}
+
+				#line{
+					text-align: center;
+				}
+
+				section#info{
+					margin: 0 240px 200px;
+					font-size: 16px;
+				}
+
+				section#info dt{
+					font-weight: 250;
+				}
+
+				section#info dd{
+					margin-left: 150px;
+					vertical-align: middle;
+				}
+
+				section#info dl{
+					padding: 0 80px 0;
+					vertical-align: middle;
+				}
+
+				section#info a.button {
+					margin-left: 140px;
+
+				}
+
+				span{
+  					font-size: 20px;
+  					font-weight: 350;
+  					
+  				}
 			}
 
 			@media screen and (max-width: 1000px){
@@ -160,16 +260,26 @@
 
 
 
+
+
   		</style>
   		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   		<script type="text/javascript" src="js/header.js"></script>
+
+  		<!-- jQuery.jsの読み込み -->
+
+
+<!-- スムーズスクロール部分の記述 -->
+
+
   	</head>
 
   	<body>
   		<header>
   		 	<nav>
   				<a href="index.html">トップページ</a>
-  				<a href="kihon/index.html">基本情報</a>
+  				<a href="#information"> 基本情報</a>
+  				<a href="kihon/index.html">チケット</a>
   				<a href="sakkaichiran/index.html">出展作家一覧</a>
 				<a href="kaizyou/index.html">アクセスマップ</a>
 		  	</nav>
@@ -180,26 +290,66 @@
   		<div id="topbig"><img src="img/topbig.png"></div>
   		<main>
   			<h1>フェイクスイーツ<br>の<br>世界展</h1>
-  			<h2>2022.11.22-29<br>eight Galery</h2>
+  			<h2>2050.<span>11.22</span>tue-<span>28</span>mon<br>eight Galery</h2>
   		</main>
 
   		<section id="gaiyou">
   			<h3>スイーツ×アート</h3>
-  			<p>「フェイクスイーツの世界」は、まるで本物のスイーツのように見えるフェイクスイーツをテーマにしたアート展です。パティシエの精緻な技術を駆使 して作られたフェイクスイーツは、リアルな質感や色彩で、見る者を驚かせ、楽しませます。この展覧会では、見た目だけでなく、その制作過程やスイ ーツが持つ象徴的な意味にも焦点を当て、視覚的な喜び、おもしろさとともに、現代アートとしてのスイーツの新たな可能性を探ります。</p>
+  			<p>「フェイクスイーツの世界展」は、まるで本物のスイーツのように見えるフェイクスイーツをテーマにしたアート展です。パティシエの精緻な技術を駆使して作られたフェイクスイーツは、リアルな質感や色彩で、見る者を驚かせ、楽しませます。<br>この展覧会では、見た目だけでなく、その制作過程やスイーツが持つ象徴的な意味にも焦点を当て、視覚的な喜び、おもしろさとともに、現代アートとしてのスイーツの新たな可能性を探ります。</p>
   			<a href="sakkaichiran/index.html"class="button">出展作家一覧へ</a>
   			<img src="img/main.jpg">
   		</section>
+
+  		<section id="info">
+  			<h4 id="information">基本情報</h4>
+  			<div id="line"><img src="img/line.svg"></div>
+  				<dl>
+  					<dt>展覧会名</dt>
+  					<dd><span>フェイクスイーツの世界展</span></dd>
+  				</dl>
+  				<dl>
+  					<dt>会期</dt>
+  					<dd><span>2050年11月22日(火)〜11月28日(水)</span></dd>
+  				</dl>
+  				<dl>
+  					<dt>時間</dt>
+  					<dd><span>11:00~19:00</span>（入場は19:00まで）</dd>
+  				</dl>
+  				<dl>
+  					<dt>会場</dt>
+  					<dd><span>eight Galery</span><a href="kaizyou/index.html" class="button">アクセスマップへ</a><br>東京都渋谷区神宮前2-21-15 SAWAビル1F</dd>
+  				</dl>
+  				<dl>
+  					<dt>入場料</dt>
+  					<dd>一般 800円<br>中高生300円</dd>
+  				</dl>
+  				<dl>
+  					<dt>主催</dt>
+  					<dd>中村優那</dd>
+  				</dl>
+  				<dl>
+  					<dt>協力</dt>
+  					<dd>糖分の会社ティラミス</dd>
+  				</dl>
+  				<dl>
+  					<dt>問い合わせ</dt>
+  					<dd>マカロン事務局　000-000-0000</dd>
+  				</dl>
+
+  			</section>
   	</body>
 
   	<footer>
   		<nav>
   			<ul>
   				<li><a href="index.html">トップページ</a></li>
-  				<li><a href="kihon/index.html">基本情報</a></li>
+  				<li><a href="#information"> 基本情報</a></li>
+  				<li><a href="kihon/index.html">チケット</a></li>
   				<li><a href="sakkaichiran/index.html">出展作家一覧</a></li>
 	  			<li><a href="kaizyou/index.html">アクセスマップ</a></li>
   			</ul> 		
   		</nav>
+  		<p>©︎ 2026 Yuna Nakamura</p>
   	</footer>
 
 </html>
