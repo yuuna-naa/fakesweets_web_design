@@ -31,49 +31,92 @@
   				margin: 40px;
   			}
 
+  			.h{
+  				margin-top: 100px;
+  				font-size: 18px;
+  				font-weight: 600;
+  				letter-spacing: 5px;
+  				color: #FF295B;
+  				text-align: center;
+  				font-family: "Noto Sans JP", sans-serif;
+  			}
+
   			main section{
   				margin: 60px 0 200px;
   				font-size: 13px;
+
   			}
+
+  			main section #money{
+  				text-align: center;
+				}
+
+			main section p{
+				margin-top: 50px;
+			}
 
   			main section dl{
   				margin-bottom: 40px;
-  				border-bottom: 1px solid #FF94AD;
+  				border-bottom: 1.5px solid #FF94AD;
+  				padding: 5px 0;
+  				display: flex;
+  				flex-wrap: wrap;
+  				width: 100%;
   			}
 
   			main section dt{
-  				float: left;
+  				/*float: left;*/
+  				margin-top: 5px;
+  				text-align: left;
+  				margin-left: 25%;
+  				width: 25%;
+
   			}
 
   			main section dd{
-  				margin-left: 70px;
+  				margin-left: 0;
+  				margin-right: 10%;
+  				width: 40%;
+  			}
+
+  			.list{
+  				list-style: none;
+  				padding-left: 0;
+  			}
+
+  			p.place{
+  				margin-bottom: 40px;
+  				border-bottom: 1.5px solid #FF94AD;
+  				padding: 5px 0;
   			}
 
   			a.button {
-  				font-family: "Kaisei Tokumin", serif;
-  				margin-top: -16px;
-  				margin-left: 85px;
-  				font-size: 9px;
-  				font-weight: 400;
+  				margin: 40px auto ;
+  				font-size: 16px;
+  				font-weight: 600;
   				display: block;
- 				width: 90px;
- 				height: 11px;
+ 				width: 190px;
+ 				height: 60px;
+ 				outline: 3px solid #fff;
+ 				outline-offset: -5px;
   				background-color: #FF94AD;
  		 		color: #fff;
+  				line-height: 55px;
   				text-align: center;
-  				line-height: 12px;
   				text-decoration: none;
-  				border-radius: 10px;
+  				border-radius: 30px;
   				box-shadow: 0px 2px 0px #FF295B;
   				transition: all 0.3s;
+  				font-family: "Kaisei Tokumin", serif;
 			}
 
 			a.button:hover {
   				background-color: #00A6BA;
-  				color: #FFF;
   				box-shadow: 0px -2px 0px #008BA2;
   				transform: translate(0px, 2px);
 			}
+
+
 
 			@media screen and (min-width: 1000px){
 
@@ -85,19 +128,30 @@
 				main section{
 					font-size: 16px;
 					margin: 60px 0 300px;
+
 				}
 
+
 				main section dl{
-					padding: 0 80px 0;
+					
 				}
 
 				main section dd{
-					margin-left: 110px;
+					margin-left: 0px;
 				}
 
-				a.button{
-					margin-left: 110px;
+
+
+				.list{
+					font-size: 13px;
+					padding: 0 80px 0;
 				}
+
+				p.place{
+					padding: 5px 80px;
+				}
+
+
 			}
 
   		</style>
@@ -127,7 +181,8 @@
   			<div id="line"><img src="../img/line.svg"></div>
 
   			<section>
-  				<h2>入場チケット料金</h2>
+  				<h2 class="h">入場チケット料金</h2>
+  				<div id="money">
   				<p>当日券（税込）</p>
   				<dl>
   					<dt>一般</dt>
@@ -146,16 +201,33 @@
   					<dt>小学生以下</dt>
   					<dd>無料</dd>
   				</dl>
-  				<ul><p>
-  					<li>小学生以下のお客様は保護者の同伴が必要です。</li>
-  					<li>中学生、高校生（専門学校、専修学校生含む）は生徒手帳、学生証をご提示ください。高校生ご提示がない場合は一般料金の適用となります。</li>
-  					<li>※障がい者手帳をご提示のご本人様、および介添えの同伴者1名様まで無料でご入場いただけます。ご入場時に障がい者手帳をご提示ください。</li>
-  					<li>再入場不可</li>
+  				</div>
+  				<ul class="list">
+  					<li>* 小学生以下のお客様は保護者の同伴が必要です。</li>
+  					<li>* 中学生、高校生（専門学校、専修学校生含む）は生徒手帳、学生証をご提示ください。高校生ご提示がない場合は一般料金の適用となります。</li>
+  					<li>* 障がい者手帳をご提示のご本人様、および介添えの同伴者1名様まで無料でご入場いただけます。ご入場時に障がい者手帳をご提示ください。</li>
+  					<li>* 再入場不可。</li>
   				</ul>
   			</section>
 
   			<section>
-  				<h3>販売場所</h3>
+  				<h3 class="h">販売場所</h3>
+  				<p class="place">チケットはユープラスチケットと会場受付での販売になります。</p>
+  				<ul class="list">
+  					<li>*日付指定。</li>
+  					<li>*会場では当日券の販売のみとなります。</li>
+  					<li>*会場では現金のみ使用可能です。</li>
+  				</ul>
+  				<a href="sakkaichiran/index.html"class="button">ユープラスチケットへ</a>
+  			</section>
+
+  			<section>
+  				<h4 class="h">販売期間</h4>
+  				<p class="place">2050年11月10日（木）18:00より販売開始</p>
+  				<ul class="list">
+  					<li>*当日券は各日17:30まで。</li>
+  					<li>*会期中は会場でも前売券を購入可能です。</li>
+  				</ul>
   			</section>
   		</main>
   	</body>

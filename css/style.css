@@ -93,7 +93,7 @@ main h1{
 	font-family: "Kaisei Tokumin", serif;
 	color: #FF295B;
 	margin: 0;
-	font-size: 22px;
+	font-size: 25px;
 	font-weight: 500;
 }
 
@@ -133,8 +133,8 @@ footer p{
 p{
 	font-family: "Noto Sans JP", sans-serif;
 	font-weight: 250;
-	font-size: 13px;
-	line-height: 21px;
+	font-size: 14px;
+	line-height: 22px;
 }
 
 

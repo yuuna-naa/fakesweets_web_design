@@ -24,6 +24,52 @@
   				padding: 0;
   				margin: 0;
   			}
+
+  			/* 固定画像のスタイル */
+.fixed-image {
+    /* 初期状態は非表示（フェードアウト状態） */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s; /* フェードの速度 */
+  pointer-events: none; /* 画像が邪魔でクリックできないのを防ぐ（必要なら） */
+}
+
+.fixed-image img#sweets{
+	position: fixed;
+	top: 40%;         /* 画面中央に配置する場合 */
+	left: 10%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+	z-index: -9999; 
+	width: 11%;
+}
+
+.fixed-image img#art{
+	position: fixed;
+	top: 40%;         /* 画面中央に配置する場合 */
+	left: 90%;
+	transform: translate(-50%, -50%)scale(0);
+	transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+	z-index: -9999;    /* 最前面にくるように */
+	width: 11%;
+}
+
+/* 監視対象が画面内に入った時に付与するクラス */
+.fixed-image.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fixed-image.is-visible img#sweets{
+	transform: translate(-50%, -50%) scale(1);
+	visibility: visible;
+}
+
+.fixed-image.is-visible img#art{
+	transform: translate(-50%, -50%) scale(1);
+}
+
+
   			
 
   			#top img{
@@ -98,7 +144,7 @@
 
   			section#info{
   				margin: 70px 40px 300px;
-  				font-size: 13px;
+  				font-size: 14px;
   				font-family: "Noto Sans JP", sans-serif;
   				font-weight: 250;
   			}
@@ -120,7 +166,7 @@
 
 
   			a.button {
-  				margin: 20px auto ;
+  				margin: 40px auto ;
   				font-size: 16px;
   				font-weight: 600;
   				display: block;
@@ -196,6 +242,17 @@
 					display: none;
 				}
 
+				.fixed-image img{
+					width: 10%;
+					top: 50%;
+				}
+				.fixed-image img#sweets{
+					left: 15%;
+				}
+				.fixed-image img#art{
+					left: 85%;
+				}
+
 				section#gaiyou{
 					margin-top: 1000px;
 				}
@@ -243,8 +300,8 @@
 				}
 
 				span{
-  					font-size: 20px;
-  					font-weight: 350;
+  					font-size: 22px;
+  					font-weight: 320;
   					
   				}
 			}
@@ -266,6 +323,36 @@
   		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   		<script type="text/javascript" src="js/header.js"></script>
 
+  		<script type="text/javascript">
+  			window.addEventListener('DOMContentLoaded', () => {
+  const targetSection = document.getElementById('gaiyou'); // 監視するセクション
+  const fixedImage = document.getElementById('fixed-image-container'); // 表示する画像
+
+  // オプション設定
+  const options = {
+    root: null,       // ビューポートを基準にする
+    rootMargin: "-10% 0px", // 誤差なし
+    threshold: 0.4    // セクションが10%でも画面に入ったら実行
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // セクションが画面内に入った時
+        fixedImage.classList.add('is-visible');
+      } else {
+        // セクションが画面外に出た時（上にも下にも）
+        fixedImage.classList.remove('is-visible');
+      }
+    });
+  }, options);
+
+  // 監視を開始
+  if (targetSection) {
+    observer.observe(targetSection);
+  }
+});
+  		</script>
   		<!-- jQuery.jsの読み込み -->
 
 
@@ -275,6 +362,10 @@
   	</head>
 
   	<body>
+  		<div id="fixed-image-container" class="fixed-image">
+  			<img src="img/sweets.svg" id="sweets" alt="特定の画像">
+  			<img src="img/art.svg" id="art" alt="特定の画像">
+		</div>
   		<header>
   		 	<nav>
   				<a href="index.html">トップページ</a>
@@ -293,6 +384,7 @@
   			<h2>2050.<span>11.22</span>tue-<span>28</span>mon<br>eight Galery</h2>
   		</main>
 
+  		
   		<section id="gaiyou">
   			<h3>スイーツ×アート</h3>
   			<p>「フェイクスイーツの世界展」は、まるで本物のスイーツのように見えるフェイクスイーツをテーマにしたアート展です。パティシエの精緻な技術を駆使して作られたフェイクスイーツは、リアルな質感や色彩で、見る者を驚かせ、楽しませます。<br>この展覧会では、見た目だけでなく、その制作過程やスイーツが持つ象徴的な意味にも焦点を当て、視覚的な喜び、おもしろさとともに、現代アートとしてのスイーツの新たな可能性を探ります。</p>
