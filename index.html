@@ -83,22 +83,33 @@
   			}
 
   			main{
-  				margin: -100px 34px 34px;
+  				margin: -150px 34px 34px;
   				color: rgba(255, 41, 91, 0.6);
+  				height: 120vW;
+
+  			}
+
+  			main div{
+  				position: -webkit-sticky; /* Safari用 */
+  				position: sticky;
+				top: 40%; /* 画面の上端に到達したら固定 */
+				z-index: 100; /* 他のコンテンツの上に表示させる */
   			}
 
   			main h1{
-  				font-size: 38px;
-  				line-height: 55px;
+  				font-size: 10vw;
+  				line-height: 15vw;
   				color: rgba(255, 0, 80, 0.6);
   				font-family: "Kaisei Tokumin", serif;
+
   			}
 
   			main h2 {
-  				margin-top: 20px;
-  				font-size: 30px;
+   				font-size: 5vw;
   				font-weight: 700;
   				font-family: "Cormorant Garamond", serif;
+  	
+  				
   			}
 
   			main h2 span{
@@ -129,7 +140,7 @@
   			}
 
   			#gaiyou img{
-  				margin-top: 100px;
+  				margin-top: 80px;
   				width:75%;
   				max-width: 400px;
   			}
@@ -165,31 +176,6 @@
   			}
 
 
-  			a.button {
-  				margin: 40px auto ;
-  				font-size: 16px;
-  				font-weight: 600;
-  				display: block;
- 				width: 150px;
- 				height: 60px;
- 				outline: 3px solid #fff;
- 				outline-offset: -5px;
-  				background-color: #FF94AD;
- 		 		color: #fff;
-  				line-height: 55px;
-  				text-decoration: none;
-  				border-radius: 30px;
-  				box-shadow: 0px 2px 0px #FF295B;
-  				transition: all 0.3s;
-  				font-family: "Kaisei Tokumin", serif;
-			}
-
-			a.button:hover {
-  				background-color: #00A6BA;
-  				box-shadow: 0px -2px 0px #008BA2;
-  				transform: translate(0px, 2px);
-			}
-
 
 			section#info a.button {
   				font-family: "Kaisei Tokumin", serif;
@@ -221,12 +207,20 @@
 
 			@media screen and (min-width: 1000px){
 				main{
-					margin: -40vw 60px;
+					margin: -30vw 60px;
+					height: 80vw;
 				}
 
+				main div{
+  				position: -webkit-sticky; /* Safari用 */
+  				position: sticky;
+				top: 25%; /* 画面の上端に到達したら固定 */
+				z-index: 100; /* 他のコンテンツの上に表示させる */
+  			}
+
 				main h1{
-					font-size: 8vw;
-					line-height: 8vw;
+					font-size: 7.5vw;
+					line-height: 7vw;
 				}
 
 				main h2{
@@ -254,7 +248,7 @@
 				}
 
 				section#gaiyou{
-					margin-top: 1000px;
+					margin-top: 800px;
 				}
 
 				section h3{
@@ -380,8 +374,10 @@
   		<div id="top"><img src="img/top.png"></div>
   		<div id="topbig"><img src="img/topbig.png"></div>
   		<main>
+  			<div>
   			<h1>フェイクスイーツ<br>の<br>世界展</h1>
   			<h2>2050.<span>11.22</span>tue-<span>28</span>mon<br>eight Galery</h2>
+  			</div>
   		</main>
 
   		
