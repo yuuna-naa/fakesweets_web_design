@@ -37,7 +37,7 @@
 .fixed-image img#sweets{
 	position: fixed;
 	top: 40%;         /* 画面中央に配置する場合 */
-	left: 10%;
+	left: 9%;
 	transform: translate(-50%, -50%) scale(0);
 	transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 	z-index: -9999; 
@@ -47,7 +47,7 @@
 .fixed-image img#art{
 	position: fixed;
 	top: 40%;         /* 画面中央に配置する場合 */
-	left: 90%;
+	left: 91%;
 	transform: translate(-50%, -50%)scale(0);
 	transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 	z-index: -9999;    /* 最前面にくるように */
@@ -133,6 +133,7 @@
 
   			section p{  						
   				text-align: left;
+  				margin: 25px 0;
   			}
 
   			section a{
@@ -140,9 +141,58 @@
   			}
 
   			#gaiyou img{
-  				margin-top: 80px;
+  				margin-top: 40px;
   				width:75%;
   				max-width: 400px;
+  			}
+
+  			#wwhich img{
+  				margin: 0;
+  				width: 100%;
+ 			}
+
+ 			#wwhich{
+ 				display: flex;
+ 				flex-wrap: wrap;
+ 				justify-content: center;
+ 			}
+
+
+  			#gaiyou .which{
+  				width: 80px;
+  				height: 80px;
+  				margin: 10px;
+  				position: relative;
+  				overflow: hidden;
+  			}
+
+  			#gaiyou .which:hover {
+  				width: 90px;
+  				height: 90px;
+  				margin: 5px;
+  				transition : 0.2s;
+  			}
+
+  			#gaiyou .real_c{
+  				text-align: center;
+  				padding-top: 25px;
+  				color: #FF295B;
+  				font-size: 22px;
+  			}
+
+  			#gaiyou .mask{
+  				width: 100%;
+  				height: 100%;
+  				position: absolute;
+  				top: 0;
+  				left: 0;
+  				opacity: 0;
+  				background-color: rgba(255, 255, 255, 0.7);
+  			}
+
+  			#gaiyou .mask:hover{
+  				transition : 0.4s;
+  				opacity: 1;
   			}
 
   			h4{
@@ -260,6 +310,23 @@
 					max-width: 500px;
 				}
 
+				#gaiyou .which{
+					width: 125px;
+					height: 125px;
+					margin: 20px;
+				}
+
+				#gaiyou .which:hover {
+  					width: 130px;
+  					height: 130px;
+  					margin: 17.5px;
+  				}
+
+  				#gaiyou .real_c{
+  					padding-top: 40px;
+  					font-size: 30px;
+  				}
+
 				h4{
 					font-size: 35px;
 					text-align: center;
@@ -362,7 +429,7 @@
 		</div>
   		<header>
   		 	<nav>
-  				<a href="index.html">トップページ</a>
+  				<a href="index.html"><span>トップページ</span></a>
   				<a href="#information"> 基本情報</a>
   				<a href="kihon/index.html">チケット</a>
   				<a href="sakkaichiran/index.html">出展作家一覧</a>
@@ -383,9 +450,38 @@
   		
   		<section id="gaiyou">
   			<h3>スイーツ×アート</h3>
-  			<p>「フェイクスイーツの世界展」は、まるで本物のスイーツのように見えるフェイクスイーツをテーマにしたアート展です。パティシエの精緻な技術を駆使して作られたフェイクスイーツは、リアルな質感や色彩で、見る者を驚かせ、楽しませます。<br>この展覧会では、見た目だけでなく、その制作過程やスイーツが持つ象徴的な意味にも焦点を当て、視覚的な喜び、おもしろさとともに、現代アートとしてのスイーツの新たな可能性を探ります。</p>
-  			<a href="sakkaichiran/index.html"class="button">出展作家一覧へ</a>
+  			<p>「フェイクスイーツの世界展」は、まるで本物のスイーツのように見えるフェイクスイーツをテーマにしたアート展です。<br>精緻な技術を駆使して作られたフェイクスイーツは、本物と見違えるほどリアルな質感や色彩で、見る者を驚かせ、楽しませます。</p>
+  			<div id="wwhich">
+  				<div class="which">
+  					<img src="img/real2.png">
+  					<div class="mask">
+  						<div class="real_c">real</div>
+  					</div>
+  				</div>
+  				<div class="which">
+  					<img src="img/fake1.png">
+  					<div class="mask">
+  						<div class="real_c">fake</div>
+  					</div>
+  				</div>
+  				<div class="which">
+  					<img src="img/real1.png">
+  					<div class="mask">
+  						<div class="real_c">real</div>
+  					</div>
+  				</div>
+  				<div class="which">
+  					<img src="img/fake2.png">
+  					<div class="mask">
+  						<div class="real_c">fake</div>
+  					</div>
+  				</div>
+  			</div>
+
+  			<p>これらのマカロンの中に、実はフェイクスイーツが含まれています。見分けはつきましたか？</p>
+  			<p>また、この展覧会では見た目だけでなく、その制作過程やスイーツが持つ象徴的な意味にも焦点を当て、視覚的な喜び、おもしろさとともに、現代アートとしてのスイーツの新たな可能性を探ります。</p>
   			<img src="img/main.jpg">
+  			<a href="sakkaichiran/index.html"class="button">出展作家一覧へ</a>
   		</section>
 
   		<section id="info">
@@ -431,7 +527,7 @@
   		<nav>
   			<ul>
   				<li><a href="index.html">トップページ</a></li>
-  				<li><a href="#information"> 基本情報</a></li>
+  				<li><a href="#information">基本情報</a></li>
   				<li><a href="kihon/index.html">チケット</a></li>
   				<li><a href="sakkaichiran/index.html">出展作家一覧</a></li>
 	  			<li><a href="kaizyou/index.html">アクセスマップ</a></li>

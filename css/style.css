@@ -2,6 +2,7 @@
 
 header{
   	position: fixed;
+  	z-index: 9999;
 }
 
 header nav{
@@ -12,7 +13,6 @@ header nav{
 	display: none;
 
 	animation: fade-in .3s;
-
 	/*animation-fill-mode: forwards;*/
 }
 
@@ -41,6 +41,16 @@ header nav a{
 }
 
 a:hover{
+	color:#00A6BA;
+}
+
+header nav a span{
+	border-bottom: 2px solid #FFF;
+	padding-left: 60px;
+	padding-bottom: 4px;
+}
+header nav a:hover span{
+	border-bottom-color: #00A6BA;
 	color:#00A6BA;
 }
 
@@ -100,15 +110,15 @@ main h1{
 footer {
   	background-color: #FF94AD;
   	padding: 10px 15px;
-  	height: 200px;
+  	height: 220px;
 }
 
 footer nav a{
 	font-family: "Kaisei Tokumin", serif;
 	font-weight: 400;
   	color: #ffffff;
-  	font-size: 15px;
-  	line-height: 30px;
+  	font-size: 14px;
+  	line-height: 28px;
   	text-decoration: none;
   	transition : all 0.1s;
 }
@@ -130,11 +140,12 @@ footer p{
 	text-align: center;
 }
 
+
 p{
 	font-family: "Noto Sans JP", sans-serif;
 	font-weight: 250;
 	font-size: 14px;
-	line-height: 22px;
+	line-height: 25px;
 }
 
 	a.button {
@@ -185,6 +196,11 @@ p{
 		line-height: 72px;
 		padding-right: 60px;
 	}
+
+	header nav a span{
+		font-size: 30px;
+		line-height: 72px;
+}
 
 	@keyframes fade-in{
 	from{
